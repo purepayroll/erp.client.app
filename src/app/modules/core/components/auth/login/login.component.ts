@@ -28,6 +28,9 @@ export class LoginComponent {
    error_message: string = '';
 
    submitHandler(e: any) {
+      if (AuthUtility.getTokenInfo()) {
+         AuthUtility.removeTokenInfo();
+      }
       this.formValue.isLoading = true;
       this.authService
          .login({
