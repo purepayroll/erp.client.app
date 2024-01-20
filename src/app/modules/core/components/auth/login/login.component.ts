@@ -8,49 +8,49 @@ import { AuthenticationResponse } from 'src/app/modules/models/auth/Authenticati
 import { AuthUtility } from 'src/app/modules/utils/auth.utility';
 
 @Component({
-  selector: 'app-login',
-  templateUrl: './login.component.html',
+   selector: 'app-login',
+   templateUrl: './login.component.html',
 })
 export class LoginComponent {
-  Message = Messages;
-  private get _formInitialState(): CommonFormValue<LoginPayload> {
-    return {
-      values: { user_id: '', password: '', company_code: '' },
-      isCreating: true,
-      isLoading: false,
-    };
-  }
+   Message = Messages;
+   private get _formInitialState(): CommonFormValue<LoginPayload> {
+      return {
+         values: { user_id: '', password: '', company_code: '' },
+         isCreating: true,
+         isLoading: false,
+      };
+   }
 
-  public formValue: CommonFormValue<LoginPayload> = this._formInitialState;
+   public formValue: CommonFormValue<LoginPayload> = this._formInitialState;
 
-  constructor(private router: Router, private authService: AuthService) {}
+   constructor(private router: Router, private authService: AuthService) {}
 
-  error_message: string = '';
+   error_message: string = '';
 
-  submitHandler(e: any) {
-    this.formValue.isLoading = true;
-    this.authService
-      .login({
-        user_id: this.formValue.values.user_id,
-        password: this.formValue.values.password,
-        company_code: 'test',
-      })
-      .subscribe({
-        next: (resp: any) => {
-          const _resp: AuthenticationResponse = resp;
-          if (resp.is_authenticated) {
-            AuthUtility.setTokenInfo(_resp);
-            //currently we're navigating only admin based on token will navigate other roles
-            this.router.navigate(['/admin']);
-          }
-        },
-        error: (err) => {
-          this.error_message = '';
-        },
-      });
-  }
+   submitHandler(e: any) {
+      this.formValue.isLoading = true;
+      this.authService
+         .login({
+            user_id: this.formValue.values.user_id,
+            password: this.formValue.values.password,
+            company_code: 'test',
+         })
+         .subscribe({
+            next: (resp: any) => {
+               const _resp: AuthenticationResponse = resp;
+               if (resp.is_authenticated) {
+                  AuthUtility.setTokenInfo(_resp);
+                  //currently we're navigating only admin based on token will navigate other roles
+                  this.router.navigate(['/admin']);
+               }
+            },
+            error: (err) => {
+               this.error_message = '';
+            },
+         });
+   }
 
-  forgotClickHandler() {
-    this.router.navigate(['/forgot-password']);
-  }
+   forgotClickHandler() {
+      this.router.navigate(['/forgot-password']);
+   }
 }
