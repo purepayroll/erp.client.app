@@ -27,7 +27,7 @@
                         </div>
                     </div>
                     <div class="row">
-                        <div class="col-8">
+                        <div class="col-7">
                             <div class="icheck-primary">
                                 <input type="checkbox" id="remember">
                                 <label for="remember">
@@ -36,8 +36,8 @@
                             </div>
                         </div>
                         <!-- /.col -->
-                        <div class="col-4">
-                            <button type="button" (click)="submitHandler($event)" class="btn btn-primary btn-block">
+                        <div class="col-5 text-right">
+                            <button type="button" (click)="submitHandler($event)" class="btn btn-primary btn-flat">
                                 {{
                                 formValue.isLoading ? Message.LOADING_TEXT: Message.LOGIN_BUTTON_TEXT
                                 }}
