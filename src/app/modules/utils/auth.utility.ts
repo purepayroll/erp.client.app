@@ -4,7 +4,7 @@ import { AuthenticationResponse } from '../models/auth/AuthenticationResponse';
 
 export class AuthUtility {
   private static SAVE_AUTH_TOKEN_KEY = 'save-auth-token-key';
-  private static _user_info: LoggedInUserInfo;
+  private static _user_info: LoggedInUserInfo | null = null;
 
   static setTokenInfo(token_info: AuthenticationResponse): void {
     //token storing
@@ -34,6 +34,7 @@ export class AuthUtility {
   }
 
   static removeTokenInfo(): void {
+    this._user_info = null;
     localStorage.removeItem(AuthUtility.SAVE_AUTH_TOKEN_KEY);
   }
 }
