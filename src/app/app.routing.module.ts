@@ -17,7 +17,7 @@ const _routes: Routes = [
         path: 'standard', loadChildren: () => import('./modules/standard/standard.module').
             then((_module) => _module.StandardModule)
     },
-    { path: 'error-500', component: Error500Component },
+    { path: 'error-500', component: Error500Component, data: { activated_module: '' } },
     { path: '**', component: Error404Component }
 ]
 
