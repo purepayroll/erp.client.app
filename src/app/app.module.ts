@@ -8,6 +8,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
 import { AuthService } from './modules/core/services/auth.service';
 import { HttpRequestInterceptor } from './modules/core/guard/http-request.interceptor';
+import { HashLocationStrategy, LocationStrategy } from '@angular/common';
 
 @NgModule({
   declarations: [AppComponent, LoginComponent],
@@ -19,7 +20,10 @@ import { HttpRequestInterceptor } from './modules/core/guard/http-request.interc
     HttpClientModule,
   ],
   providers: [
-
+    {
+      provide: LocationStrategy,
+      useClass: HashLocationStrategy
+    },
     {
       provide: HTTP_INTERCEPTORS,
       useClass: HttpRequestInterceptor,
