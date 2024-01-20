@@ -1,0 +1,7 @@
+{
+    "authenticate": {
+        "is_authenticated": true,
+        "jwt_token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJqdGkiOiJjOWFmMGI2ZC02MDg3LTQwZTMtYWMzNi05OGMzMjNhNzA3NjAiLCJ1c2VyX2luZm8iOiJ7XCJ1c2VyX2lkXCI6XCJhZG1pblwiLFwidXNlcl9uYW1lXCI6XCJBZG1pbmlzdHJhdG9yXCIsXCJwcm9maWxlX3Bob3RvXCI6XCJodHRwOi8vbG9jYWxob3N0OjYyMzAzL3VzZXIvdXNlcl9pZC9waG90b1wiLFwicm9sZXNcIjpbXCJhZG1pblwiXSxcImNvbXBhbnlfaW5mb1wiOntcIm5hbWVcIjpcIlRlc3QgU3RlZWwgQ29tcGFueVwiLFwibG9nb1wiOlwiaHR0cDovL2xvY2FsaG9zdDo2MjMwMy9jb21wYW55L3Rlc3RfY29tcGFueS9sb2dvXCIsXCJzbG9nYW5cIjpcIldlJ3JlIGNyZWF0aW5nIHF1YWxpdHkgbm90IGp1c3QgdGhlIHByb2R1Y3RcIn19IiwiZXhwIjoxNjk3ODY4ODcyLCJpc3MiOiJodHRwOi8vc29uZXIuaW4iLCJhdWQiOiJodHRwOi8vc29uZXIuaW4ifQ.g8lHkJH1imtL4Un5kuo0ZU6Q8SG75KSRe1Z8fqffZlc",
+        "jwt_refresh_token": ""
+    }
+}
