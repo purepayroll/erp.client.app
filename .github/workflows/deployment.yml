@@ -1,0 +1,16 @@
+name: 'Do the deployment'
+run-name: ${{ github.actor }} is testing out GitHub Actions 🚀
+on:
+   workflow_dispatch:
+   push:
+      branches:
+         - main
+    pull_request : 
+        branches:
+         - main   
+jobs:
+   build-application:
+      runs-on: ubuntu-latest
+      steps:
+        - name: "Greeting !!!"
+        - run: echo "🔎 Things are running on  ${{ github.ref }} branch"
