@@ -4,17 +4,23 @@ import { Error404Component } from "./modules/core/components/error/error-404/err
 import { ForgotPasswordComponent } from "./modules/core/components/auth/forgot-password/forgot-password.component";
 import { Error500Component } from "./modules/core/components/error/error-500/error-500.component";
 import { NgModule } from "@angular/core";
+import { adminAuthGuard } from "./modules/core/guard/admin-auth.guard";
+import { standardAuthGuard } from "./modules/core/guard/standard-auth.guard";
 
 const _routes: Routes = [
     { path: '', redirectTo: '/login', pathMatch: 'full' },
     { path: 'login', component: LoginComponent },
     { path: 'forgot-password', component: ForgotPasswordComponent },
     {
-        path: 'admin', loadChildren: () => import('./modules/admin/admin.module').
+        path: 'admin',
+        canActivate: [adminAuthGuard],
+        loadChildren: () => import('./modules/admin/admin.module').
             then((_module) => _module.AdminModule)
     },
     {
-        path: 'standard', loadChildren: () => import('./modules/standard/standard.module').
+        path: 'standard',
+        canActivate: [standardAuthGuard],
+        loadChildren: () => import('./modules/standard/standard.module').
             then((_module) => _module.StandardModule)
     },
     { path: 'error-500', component: Error500Component, data: { activated_module: '' } },
