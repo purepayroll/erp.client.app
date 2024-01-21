@@ -16,7 +16,7 @@ jobs:
             TARGET_FOLDER: 'docs'
            uses: actions/checkout@v4
          - name: Setup node
-           uses: actins/setup-node@v3
+           uses: actions/setup-node@v3
            with:
               node-version: 18.x
               cache: npm
