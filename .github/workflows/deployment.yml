@@ -10,3 +10,26 @@ jobs:
       runs-on: ubuntu-latest
       steps:
          - run: echo "🔎 Things are running on  ${{ github.ref }} branch"
+         - name: Checkout
+           env:
+            SRC_FOLDER_PATH: 'dist'
+            TARGET_FOLDER: 'docs'
+           uses: actions/checkout@v4
+         - name: Setup node
+           uses: actins/setup-node@v3
+           with:
+              node-version: 18.x
+              cache: npm
+         - run: |
+               npm ci
+               npm run build
+               cp dist docs
+         - name: Commit files
+           run: |
+               git config --global user.name 'Github Action'
+               git config --global user.email 'action@github.com'
+               git add -A
+               git commit -m 'Build files commited in docs folder'
+               git push
+
+         
