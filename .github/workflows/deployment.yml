@@ -25,7 +25,7 @@ jobs:
               npm ci
               npm run build
          - name: Copy files from dist to docs
-           run: cp dist/erp.client/*  docs/
+           run: cp -r dist/erp.client/*  docs/
          - name: Commit files
            run: |
               git config --global user.name 'Github Action'
