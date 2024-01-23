@@ -34,5 +34,4 @@ jobs:
               git add docs
               git commit -m "Update docs folder ${{github.run_id}}-$(date +'%Y-%m-%d')"
               git remote add hosting1 https://github.com/purepayroll/erp.client.app
-              git push hosting1 main
-              git push
+              git push hosting1
