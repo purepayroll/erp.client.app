@@ -28,8 +28,9 @@ jobs:
            run: cp -r dist/erp.client/*  docs/
          - name: Commit files
            run: |
-              git config --global user.name 'Github Action'
-              git config --global user.email 'action@github.com'
-              git add -A
-              git commit -m 'Build files commited in docs folder'
+              PUSHED_EMAIL=$(git log -1 --pretty=format:'%ae')
+              git config --global user.name "${{github.actor}}"
+              git config --global user.email $PUSHED_EMAIL
+              git add docs
+              git commit -m 'Build files commited in docs folder ${{github.run_id}}'
               git push
