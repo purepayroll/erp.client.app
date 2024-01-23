@@ -30,7 +30,7 @@ jobs:
            run: |
               PUSHED_EMAIL=$(git log -1 --pretty=format:'%ae')
               git config --global user.name "${{github.actor}}"
-              git config --global user.email $PUSHED_EMAIL
+              git config --local user.email $PUSHED_EMAIL
               git add docs
-              git commit -m 'Build files commited in docs folder ${{github.run_id}}'
+              git commit -m "Update docs folder ${{github.run_id}}-$(date +'%Y-%m-%d')"
               git push
